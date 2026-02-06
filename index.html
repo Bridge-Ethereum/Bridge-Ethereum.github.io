@@ -4,57 +4,57 @@
   
 
 
-  <!-- SEO / EEAT Meta Tags -->
+  <!-- SEO Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)</title>
-  <meta name="description" content="Staking Polygon (POL) guide (2026): how Polygon staking works, rewards and real yield, APY vs APR, how to stake step-by-step, validator list criteria, minimum POL, calculator framework, best practices, risks, safety checks, comparisons vs liquid staking, and troubleshooting. Includes KPIs, runbook, and a deep FAQ.">
+  <title>Bridge Ethereum — How to Bridge ETH & Tokens, Fees, Time, L2 Bridges, Safety & Troubleshooting (2026)</title>
+  <meta name="description" content="Bridge Ethereum guide (2026): how to bridge ETH and tokens to Ethereum L2s step-by-step, fees & expected time, canonical vs third-party bridges, supported tokens, wallet setup, explorer verification, security checklist, risks, and troubleshooting. Includes runbook, KPIs, and a deep FAQ.">
   <meta name="author" content="Crypto Finance Experts">
-  <link rel="canonical" href="https://staking-polygon.example.com/">
+  <link rel="canonical" href="https://bridge-ethereum.example.com/">
 
-  <!-- Favicon (use your local file) -->
-  <link rel="icon" type="image/png" href="polygon-logo-png_seeklogo-527156.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="lido.staking.logo.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://staking-polygon.example.com/">
-  <meta property="og:title" content="Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)">
-  <meta property="og:description" content="Practical Staking Polygon (POL) guide: rewards, APY/APR, validator selection, safety checklist, calculator framework, and troubleshooting.">
-  <meta property="og:image" content="cover.png">
+  <meta property="og:url" content="https://bridge-ethereum.example.com/">
+  <meta property="og:title" content="Bridge Ethereum — Fees, Time, L2 Bridges, Security & Troubleshooting (2026)">
+  <meta property="og:description" content="Practical Bridge Ethereum guide: safest bridge routes, fees/time expectations, explorer verification, security checklist, and troubleshooting.">
+  <meta property="og:image" content="eth.png">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://staking-polygon.example.com/">
-  <meta property="twitter:title" content="Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)">
-  <meta property="twitter:description" content="Deep Polygon staking guide: yield drivers, validator criteria, minimum POL, best practices, and risks in 2025–2026.">
-  <meta property="twitter:image" content="cover.png">
+  <meta property="twitter:url" content="https://bridge-ethereum.example.com/">
+  <meta property="twitter:title" content="Bridge Ethereum — How to Bridge ETH to L2 Safely (2026)">
+  <meta property="twitter:description" content="Deep Bridge Ethereum guide: canonical vs third-party bridges, costs, delays, token visibility fixes, and FAQs.">
+  <meta property="twitter:image" content="eth.png">
 
   <style>
     :root{
-      /* Black–Purple Theme */
-      --primary:#A855F7;       /* purple-500 */
-      --primary-600:#9333EA;   /* purple-600 */
-      --primary-700:#7E22CE;   /* purple-700 */
-      --accent:#22D3EE;        /* cyan accent for tiny highlights */
+      /* Lido-like clean blue/white */
+      --primary:#00A3FF;
+      --primary-600:#0097EE;
+      --primary-700:#0079C7;
+      --accent:#7C3AED;
 
-      --ink:#F8FAFC;           /* near-white text */
-      --muted:#A1A1AA;         /* zinc-400 */
-      --muted-2:#71717A;       /* zinc-500 */
+      --ink:#0B1220;
+      --muted:#344256;
+      --muted-2:#5B6B82;
 
-      --bg:#070712;            /* deep black/purple */
-      --panel:#0B0B18;
-      --panel-2:#0F0F24;
-      --line:rgba(255,255,255,.10);
+      --bg:#F6FAFF;
+      --panel:#FFFFFF;
+      --panel-2:#F3F8FF;
+      --line:rgba(11,18,32,.10);
 
-      --ok:#22C55E;
+      --ok:#16A34A;
       --warn:#F59E0B;
-      --error:#EF4444;
+      --error:#DC2626;
 
-      --shadow: 0 18px 44px rgba(0,0,0,.55);
-      --radius:14px;
-      --radius-sm:10px;
-      --radius-lg:22px;
+      --shadow: 0 18px 44px rgba(12, 26, 61, .12);
+      --radius:16px;
+      --radius-lg:26px;
+
       --gap:1.25rem;
       --gap-lg:2rem;
     }
@@ -66,10 +66,10 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
       color:var(--muted);
       background:
-        radial-gradient(900px 600px at 15% 0%, rgba(168,85,247,.22), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(34,211,238,.10), transparent 60%),
-        radial-gradient(900px 600px at 55% 85%, rgba(126,34,206,.16), transparent 60%),
-        linear-gradient(180deg, #050510 0%, #070712 45%, #050510 100%);
+        radial-gradient(1100px 650px at 10% 0%, rgba(0,163,255,.14), transparent 62%),
+        radial-gradient(900px 520px at 95% 12%, rgba(124,58,237,.10), transparent 58%),
+        radial-gradient(950px 600px at 55% 95%, rgba(0,163,255,.10), transparent 60%),
+        linear-gradient(180deg, #FFFFFF 0%, var(--bg) 55%, #FFFFFF 100%);
       line-height:1.65;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -81,11 +81,11 @@
     img{max-width:100%; height:auto; display:block}
     .container{max-width:1100px; margin:0 auto; padding:0 1.25rem}
 
-    h1,h2,h3,h4{color:var(--ink); line-height:1.25; margin:0 0 .6rem}
+    h1,h2,h3,h4{color:var(--ink); line-height:1.22; margin:0 0 .6rem}
     h1{
-      font-size:clamp(2rem,4.5vw,3.1rem);
+      font-size:clamp(2rem,4.6vw,3.2rem);
       font-weight:950;
-      letter-spacing:.2px;
+      letter-spacing:.15px;
     }
     h2{
       font-size:clamp(1.35rem,2.8vw,2rem);
@@ -93,20 +93,22 @@
       padding-top:.6rem;
       border-top:1px solid var(--line);
     }
-    h3{font-size:clamp(1.05rem,2.2vw,1.3rem); color:#EDE9FE}
+    h3{
+      font-size:clamp(1.05rem,2.1vw,1.28rem);
+      color:#0B2A4C;
+      margin-top:1rem;
+    }
 
     p,li,td,th{font-size:1rem}
-    .lead{font-size:1.125rem; color:#E5E7EB}
+    .lead{font-size:1.125rem; color:#20324A}
     .muted{color:var(--muted)}
     .muted-2{color:var(--muted-2)}
 
     header.hero{
       padding: clamp(2rem,6vw,4rem) 0;
-      background:
-        radial-gradient(700px 420px at 18% 10%, rgba(168,85,247,.25), transparent 60%),
-        radial-gradient(700px 420px at 90% 20%, rgba(34,211,238,.12), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 55%);
       border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(0,163,255,.08), rgba(255,255,255,0) 55%);
     }
 
     .hero-grid{
@@ -117,168 +119,223 @@
     }
 
     .hero-card{
-      background: linear-gradient(180deg, rgba(15,15,36,.82), rgba(11,11,24,.68));
+      background:
+        radial-gradient(120% 160% at 20% 0%, rgba(0,163,255,.10), rgba(0,163,255,0) 58%),
+        linear-gradient(180deg, #FFFFFF, rgba(243,248,255,.78));
       border:1px solid var(--line);
       border-radius:var(--radius-lg);
-      padding:clamp(1rem,3vw,1.75rem);
+      padding:clamp(1rem,3vw,1.85rem);
       box-shadow:var(--shadow);
       backdrop-filter: blur(8px);
     }
 
-    .brand-row{display:flex; align-items:center; gap:.9rem; margin-bottom:.75rem}
+    .brand-row{
+      display:flex; align-items:center; gap:.9rem;
+      margin-bottom:.75rem
+    }
     .brand-logo{
-      width:54px;
-      height:54px;
-      border-radius:14px;
+      width:56px;
+      height:56px;
+      border-radius:16px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      padding:.35rem;
+      background:#FFFFFF;
+      padding:.42rem;
       object-fit:contain;
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      box-shadow: 0 12px 26px rgba(12,26,61,.12);
       flex:0 0 auto;
     }
 
+    /* SINGLE CTA — centered, big, attractive */
+    .cta-center{
+      display:flex;
+      justify-content:center;
+      margin-top: 1.1rem;
+    }
     .cta{
-      display:inline-block;
-      margin-top:1rem;
-      background:linear-gradient(180deg, var(--primary), var(--primary-700));
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.75rem;
+      background:
+        radial-gradient(90% 160% at 50% 0%, rgba(255,255,255,.55), rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, var(--primary), var(--primary-700));
       color:white;
-      padding:.9rem 1.4rem;
-      border-radius:12px;
-      font-weight:900;
+      padding:1.25rem 3.05rem;
+      border-radius:20px;
+      font-weight:950;
       letter-spacing:.2px;
-      box-shadow:0 14px 32px rgba(168,85,247,.28);
-      border:1px solid rgba(255,255,255,.10);
+      font-size:1.2rem;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:
+        0 22px 70px rgba(0,163,255,.22),
+        0 0 0 10px rgba(0,163,255,.12);
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      text-decoration:none;
+      text-align:center;
+      min-width:min(620px, 100%);
     }
-    .cta:hover{filter:brightness(1.05); text-decoration:none}
-    .cta.secondary{
-      background:transparent;
-      border:1px solid var(--line);
-      color:var(--ink);
-      margin-left:.75rem;
-      box-shadow:none;
+    .cta:hover{
+      text-decoration:none;
+      filter:brightness(1.03);
+      transform: translateY(-2px);
+      box-shadow:
+        0 28px 86px rgba(0,163,255,.26),
+        0 0 0 12px rgba(0,163,255,.14);
     }
+    .cta:active{transform: translateY(0px); filter:brightness(.98);}
 
     .note{
-      border-left:3px solid var(--primary);
-      padding:.75rem 1rem;
-      background:rgba(168,85,247,.10);
-      border-radius:10px;
-      color:#E5E7EB;
+      border-left:4px solid var(--primary);
+      padding:.9rem 1rem;
+      background:rgba(0,163,255,.08);
+      border-radius:14px;
+      color:#20324A;
+      margin-top:1rem;
     }
 
+    /* HERO IMAGE — framed + beautiful */
     .hero-media{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-top: 18px;
-    }
-    .hero-img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      max-height:520px;
+      position:relative;
       border-radius:var(--radius-lg);
       border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      overflow:hidden;
       box-shadow:var(--shadow);
-      padding:.25rem;
+      background:
+        radial-gradient(130% 160% at 30% 0%, rgba(0,163,255,.14), rgba(0,163,255,0) 58%),
+        #FFFFFF;
     }
-
-    .content-media{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-top: 14px;
+    .hero-media::before{content:""; display:block; padding-top:56.25%;}
+    .hero-img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      filter:saturate(1.02) contrast(1.02);
     }
-    .content-img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      max-height:420px;
-      border-radius:var(--radius);
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      box-shadow:var(--shadow);
-      padding:.25rem;
+    .hero-media::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(70% 70% at 20% 10%, rgba(124,58,237,.12), rgba(124,58,237,0) 55%),
+        linear-gradient(180deg, rgba(255,255,255,0), rgba(11,18,32,.10));
+      pointer-events:none;
     }
 
     section.step-guide{padding: clamp(2rem,6vw,3.5rem) 0}
     .steps{display:grid; gap:var(--gap); grid-template-columns:1fr;}
     .step{
-      background:linear-gradient(180deg, rgba(15,15,36,.78), rgba(11,11,24,.62));
+      background:linear-gradient(180deg, #FFFFFF, rgba(243,248,255,.92));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1.2rem;
-      box-shadow: 0 12px 26px rgba(0,0,0,.45);
+      box-shadow: 0 12px 26px rgba(12,26,61,.10);
       transition:transform .2s ease, box-shadow .2s ease;
     }
-    .step:hover{transform:translateY(-4px); box-shadow:0 18px 34px rgba(0,0,0,.55)}
+    .step:hover{transform:translateY(-3px); box-shadow:0 18px 34px rgba(12,26,61,.14)}
     .step .icon{
       width:54px;height:54px;border-radius:50%;
       display:inline-grid; place-items:center;
-      background:rgba(168,85,247,.18);
+      background:rgba(0,163,255,.12);
       margin-bottom:.6rem;
-      color:#EDE9FE;
+      color:#0B1220;
       font-weight:950;
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(11,18,32,.08);
     }
 
     main .card{
-      background:linear-gradient(180deg, rgba(15,15,36,.70), rgba(11,11,24,.58));
+      background:linear-gradient(180deg, #FFFFFF, rgba(243,248,255,.90));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1.25rem;
       margin:1.25rem 0;
-      box-shadow: 0 12px 26px rgba(0,0,0,.45);
-    }
-
-    .grid-2{display:grid; gap:var(--gap); grid-template-columns:1fr;}
-    .pillbar{
-      display:flex; flex-wrap:wrap; gap:.6rem;
-      margin:.75rem 0 0;
-    }
-    .pill{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      padding:.4rem .65rem;
-      border-radius:999px;
-      font-weight:800;
-      color:#E5E7EB;
-      box-shadow:none;
+      box-shadow: 0 12px 26px rgba(12,26,61,.10);
     }
 
     .toc{
       border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(168,85,247,.10), rgba(255,255,255,.02));
+      background:linear-gradient(180deg, rgba(0,163,255,.08), rgba(255,255,255,.82));
       border-radius:var(--radius);
       padding:1rem;
     }
-    .toc strong{color:#F1F5F9}
+    .toc strong{color:var(--ink)}
     .toc ul{margin:.5rem 0 0; padding-left:1.1rem}
     .toc li{margin:.25rem 0}
-    .toc a{font-weight:800}
+    .toc a{font-weight:950}
 
-    table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
+    table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:14px}
     th,td{padding:.9rem; border-bottom:1px solid var(--line)}
     th{
-      background:rgba(168,85,247,.10);
-      color:#F8FAFC;
+      background:rgba(0,163,255,.10);
+      color:var(--ink);
       text-align:left
     }
-    tr.highlight{background:rgba(168,85,247,.08)}
-    tr:hover{background:rgba(255,255,255,.03)}
+    tr.highlight{background:rgba(0,163,255,.06)}
+    tr:hover{background:rgba(11,18,32,.03)}
 
-    .ok{color:var(--ok)} .warn{color:var(--warn)} .err{color:var(--error)}
+    .inline-code{
+      display:inline-block;
+      padding:.15rem .38rem;
+      border-radius:10px;
+      border:1px solid rgba(11,18,32,.10);
+      background:rgba(11,18,32,.03);
+      color:#0B1220;
+      font-weight:900;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
 
-    .eeat{
-      background:linear-gradient(180deg, rgba(168,85,247,.10), rgba(255,255,255,.02));
+    .callout-grid{
+      display:grid;
+      gap:var(--gap);
+      grid-template-columns:1fr;
+      margin-top: .75rem;
+    }
+    .mini{
+      background:rgba(0,163,255,.06);
+      border:1px solid rgba(11,18,32,.10);
+      border-radius:var(--radius);
+      padding:1rem;
+    }
+    .kpi-badges{
+      display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.6rem;
+    }
+    .kpi-badges span{
+      border:1px solid rgba(0,163,255,.20);
+      background:rgba(0,163,255,.08);
+      color:#0B1220;
+      padding:.32rem .58rem;
+      border-radius:999px;
+      font-weight:950;
+      font-size:.9rem;
+    }
+
+    /* SECONDARY IMAGE — do NOT stretch/crop */
+    .content-media{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:14px;
+
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:#FFFFFF;
+      padding:12px;
+    }
+    .content-img{
+      width:100%;
+      height:auto;
+      max-height:420px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .sources{
+      background:linear-gradient(180deg, rgba(0,163,255,.08), rgba(255,255,255,.85));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1.25rem;
-      box-shadow: 0 12px 26px rgba(0,0,0,.45);
+      box-shadow: 0 12px 26px rgba(12,26,61,.10);
     }
 
     .faq-item{border-bottom:1px solid var(--line); padding: .9rem 0}
@@ -290,58 +347,10 @@
     .faq-button h3{margin:0; font-weight:950}
     .faq-content{max-height:0; overflow:hidden; transition:max-height .25s ease}
     .faq-content.open{padding-top:.6rem}
-    .faq-plus{font-weight:950; color:#EDE9FE}
-
-    .cta-center{
-      display:flex;
-      justify-content:center;
-      margin-top: 1rem;
-    }
-    .cta-center .cta{margin-top:0}
-
-    .badge-row{
-      display:flex; flex-wrap:wrap; gap:.6rem;
-      margin:.9rem 0 0;
-    }
-    .badge{
-      border:1px solid var(--line);
-      background:rgba(34,211,238,.06);
-      padding:.35rem .6rem;
-      border-radius:999px;
-      font-weight:900;
-      color:#E5E7EB;
-    }
-
-    .callout-grid{
-      display:grid;
-      gap:var(--gap);
-      grid-template-columns:1fr;
-      margin-top: .75rem;
-    }
-    .mini{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1rem;
-    }
-    .mini h3{margin-bottom:.35rem}
-    .kpi-badges{
-      display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.5rem;
-    }
-    .kpi-badges span{
-      border:1px solid rgba(168,85,247,.22);
-      background:rgba(168,85,247,.07);
-      color:#EDE9FE;
-      padding:.3rem .55rem;
-      border-radius:999px;
-      font-weight:900;
-      font-size:.9rem;
-    }
+    .faq-plus{font-weight:950; color:#0B2A4C}
 
     @media (min-width: 860px){
-      .hero-grid{grid-template-columns: 1fr;}
       .steps{grid-template-columns: repeat(4, 1fr)}
-      .grid-2{grid-template-columns: 1fr 1fr}
       .callout-grid{grid-template-columns: 1fr 1fr}
     }
   </style>
@@ -353,72 +362,70 @@
   <div class="container hero-grid">
     <div class="hero-card" aria-label="Intro">
       <div class="brand-row">
-        <img class="brand-logo" src="polygon-logo-png_seeklogo-527156.png" alt="Staking Polygon logo">
+        <img class="brand-logo" src="lido.staking.logo.png" alt="Logo">
         <div>
-          <div class="muted" style="font-weight:900; letter-spacing:.2px;">Operational Guide</div>
-          <div class="muted-2" style="font-size:.95rem;">Rewards • APY/APR • Validators • Calculator • Safety</div>
+          <div class="muted" style="font-weight:950; letter-spacing:.2px;">Operational Guide</div>
+          <div class="muted-2" style="font-size:.95rem;">Bridge Ethereum • L2 Bridges • Fees/Time • Safety • Troubleshooting</div>
         </div>
       </div>
 
-      <h1>Staking Polygon (POL)</h1>
+      <h1>Bridge Ethereum</h1>
       <p class="lead">
-        This is a practical, security-first guide to <strong>Staking Polygon (POL)</strong>: how staking works end-to-end,
-        what drives rewards, how to compare <strong>APY vs APR</strong>, how to choose validators, how to estimate yield with
-        a calculator framework, and how to avoid the common mistakes that cause lost time (or lost funds).
+        This is a practical, security-first guide to <strong>Bridge Ethereum</strong>: how to bridge <strong>ETH</strong> and tokens to Ethereum Layer 2s,
+        how to compare <strong>canonical vs third-party bridges</strong>, what fees and time to expect, how to verify your bridge transfer on explorers,
+        and how to fix the most common “missing funds / wrong network / token not showing” issues.
       </p>
 
-
+      <!-- ONE CENTERED BUTTON -->
       <div class="cta-center">
-        <a href="https://staking-polygon.com/" class="cta" aria-label="Open Polygon Staking (placeholder)">Open Polygon Staking</a>
+        <a href="https://ethereum.org/guides/how-to-use-a-bridge/" class="cta" aria-label="Open Ethereum guide on bridges">
+          Open Bridge Ethereum
+        </a>
       </div>
 
-      <div class="note" style="margin-top:1rem;">
-        <strong>Quick rule:</strong> If you’re staking meaningful size, do a small test delegation first,
-        then scale in. Staking is operational: validator choice, unbonding rules, and wallet hygiene matter.
+      <div class="note">
+        <strong>Quick rule:</strong> for Bridge Ethereum, do a small test first, verify on explorers,
+        and avoid unlimited approvals on unknown bridge contracts.
       </div>
     </div>
 
     <div class="hero-media" aria-hidden="true">
-      <!-- First top image -->
-      <img class="hero-img" src="snimok-ekrana-2022-01-25-v-16.10.24.png" alt="Staking Polygon overview visual">
+      <img class="hero-img" src="eth.png" alt="Bridge Ethereum hero image">
     </div>
   </div>
 </header>
 
 <section class="step-guide" aria-labelledby="how-works">
   <div class="container">
-    <h2 id="how-works">Staking Polygon (POL): How the Workflow Works (Choose → Delegate → Earn → Unstake)</h2>
+    <h2 id="how-works">Bridge Ethereum Workflow: Choose L2 → Use a Bridge → Verify → Fix Token Visibility</h2>
     <div class="steps" role="list">
       <article class="step" role="listitem">
         <div class="icon">①</div>
-        <h3>Choose a staking method (native vs liquid staking)</h3>
+        <h3>Choose where you’re bridging (Ethereum → L2)</h3>
         <p>
-          Decide if you want native delegation (more “direct”, but with lock/unbond rules) or liquid staking
-          (more flexibility, but extra smart-contract and peg/liquidity considerations).
+          Bridge Ethereum starts with a destination decision: which Layer 2 (and which token) you actually need for the app you’ll use.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">②</div>
-        <h3>Select validators (the real risk/return lever)</h3>
+        <h3>Pick a Bridge Ethereum route (canonical vs third-party)</h3>
         <p>
-          Your validator choice drives uptime risk, slashing exposure, commission drag, and reliability.
-          “Highest APY” is not a strategy if the operator is unstable or opaque.
+          Canonical bridges are the “native” route for a specific L2 but can be slower on withdrawals.
+          Third-party bridges can be faster, but add additional risk layers.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">③</div>
-        <h3>Delegate and track rewards (net yield matters)</h3>
+        <h3>Bridge Ethereum and confirm on explorers</h3>
         <p>
-          Rewards are not just “APR”: net yield depends on commission, compounding cadence, and any extra
-          fees/constraints. Track realized outcomes, not only quotes.
+          Wallet UIs can lag. Verify the source tx and destination receipt on explorers before assuming funds are missing.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">④</div>
-        <h3>Unstake safely (timelines, claims, and mistakes)</h3>
+        <h3>Fix “token not showing” on your L2 wallet</h3>
         <p>
-          The exit path is part of the plan: understand unbonding delays, claim steps, and how long capital is illiquid.
-          Most “stuck” issues come from missing exit steps or network mismatch.
+          If the explorer shows the token, add the verified contract in your wallet and confirm you’re on the right network.
         </p>
       </article>
     </div>
@@ -428,484 +435,380 @@
 <main class="container" role="main">
 
   <section class="card toc" aria-label="Table of Contents">
-    <strong>On this page (Staking Polygon):</strong>
+    <strong>On this page (Bridge Ethereum):</strong>
     <ul>
-      <li><a href="#overview">Staking Polygon overview (what it is &amp; who it’s for)</a></li>
-      <li><a href="#rewards">Polygon staking rewards: what drives yield</a></li>
-      <li><a href="#apy-apr">Polygon staking APY / APR: how to compare correctly</a></li>
-      <li><a href="#how-to">How to stake Polygon (POL): step-by-step tutorial</a></li>
-      <li><a href="#calculator">Polygon staking calculator: estimation framework</a></li>
-      <li><a href="#validators">Polygon validator list: selection checklist</a></li>
-      <li><a href="#minimum">Polygon staking minimum POL required</a></li>
-      <li><a href="#yield">Polygon staking yield: compounding &amp; net return</a></li>
-      <li><a href="#review">Staking Polygon review: legit, trust, and what to watch</a></li>
-      <li><a href="#safety">Is staking Polygon safe? risks &amp; rewards</a></li>
-      <li><a href="#comparison">Staking Polygon comparison vs liquid staking</a></li>
-      <li><a href="#best-practices">Best way to stake Polygon: best practices</a></li>
-      <li><a href="#troubleshooting">Troubleshooting &amp; common issues</a></li>
-      <li><a href="#eeat">Sources &amp; references</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#overview">Bridge Ethereum overview (what it is & why people bridge)</a></li>
+      <li><a href="#routes">Bridge Ethereum routes: canonical vs third-party bridges</a></li>
+      <li><a href="#fees-time">Bridge Ethereum fees & time: practical expectations</a></li>
+      <li><a href="#wallet">Bridge Ethereum wallet setup: networks + gas planning</a></li>
+      <li><a href="#verify">How to verify a Bridge Ethereum transfer (explorer-first)</a></li>
+      <li><a href="#tokens">Bridge Ethereum tokens: supported assets & “token not showing”</a></li>
+      <li><a href="#security">Bridge Ethereum security checklist</a></li>
+      <li><a href="#troubleshooting">Bridge Ethereum troubleshooting</a></li>
+      <li><a href="#sources">Authoritative sources & references</a></li>
+      <li><a href="#faq">Bridge Ethereum FAQ (deep)</a></li>
     </ul>
   </section>
 
   <section class="card" id="overview">
-    <h2>Staking Polygon Overview: What It Is, and Why People Stake POL</h2>
+    <h2>Bridge Ethereum Overview: What “Bridge Ethereum” Means</h2>
     <p>
-      <strong>Staking Polygon (POL)</strong> generally means committing POL to help secure network operations (directly or via delegation),
-      earning rewards in return. The trade-off is simple: you exchange liquidity and operational attention
-      (validator selection + rules) for yield and network participation.
+      <strong>Bridge Ethereum</strong> typically means moving <strong>ETH</strong> or tokens from Ethereum Mainnet to an Ethereum Layer 2 (or between L2s)
+      using a bridge. The benefit is usually lower fees and faster transactions on the destination network. The trade-off is extra steps and risk:
+      smart contracts, relayers/liquidity, and user mistakes.
     </p>
 
     <div class="callout-grid" role="list">
       <div class="mini" role="listitem">
-        <h3>Best use-case</h3>
+        <h3>Why people Bridge Ethereum</h3>
         <p class="muted">
-          Long-term holders who want yield and can tolerate lock/unbond timelines.
+          Lower transaction costs, faster UX, and access to apps that live on L2s.
         </p>
         <div class="kpi-badges">
-          <span>Long-term</span><span>Yield-focused</span><span>Risk-managed</span>
+          <span>Lower fees</span><span>Faster UX</span><span>L2 apps</span>
         </div>
       </div>
 
       <div class="mini" role="listitem">
-        <h3>Main constraints</h3>
+        <h3>What causes “missing funds”</h3>
         <p class="muted">
-          Unbonding delay, validator/operator risk, and the need for careful wallet hygiene.
+          Wrong network selected, token not tracked in wallet, or using the wrong bridge route/asset.
         </p>
         <div class="kpi-badges">
-          <span>Illiquidity</span><span>Operator risk</span><span>Process matters</span>
+          <span>Wrong network</span><span>Token not showing</span><span>Route mismatch</span>
         </div>
       </div>
     </div>
 
-    <div class="note" style="margin-top:1rem;">
-      <strong>Operational truth:</strong> the “best” staking setup is the one you can exit safely.
-      Always plan the unstake path before you stake.
+    <div class="note">
+      <strong>Operational truth:</strong> if the explorer shows the transfer, your funds are almost never “lost”.
+      Fix network selection + token visibility before retrying.
     </div>
 
     <div class="content-media">
-      <!-- Second image -->
-      <img class="content-img" src="poly2.png" alt="Staking Polygon checklist visual">
+      <img class="content-img" src="eth2.png" alt="Bridge Ethereum secondary image">
     </div>
   </section>
 
-  <section class="card" id="rewards">
-    <h2>Polygon Staking Rewards: What Drives Rewards and Why They Change</h2>
+  <section class="card" id="routes">
+    <h2>Bridge Ethereum Routes: Canonical Bridges vs Third-Party Bridges</h2>
     <p>
-      <strong>Polygon staking rewards</strong> vary over time. Your realized outcome depends on network conditions and
-      your validator’s behavior (commission, uptime, performance), plus how you compound.
-    </p>
-    <ul>
-      <li><strong>Validator commission:</strong> your rewards are reduced by the operator’s cut.</li>
-      <li><strong>Uptime/performance:</strong> instability reduces rewards and can increase risk.</li>
-      <li><strong>Compounding cadence:</strong> auto-compound vs manual compounding changes net APY.</li>
-      <li><strong>Operational fees:</strong> some paths require extra transactions (claim/compound/unstake).</li>
-    </ul>
-
-    <div class="note">
-      <strong>Rule:</strong> Treat quoted yield as “gross”. Track net yield after commission + fees + missed time (downtime/unbond).
-    </div>
-  </section>
-
-  <section class="card" id="apy-apr">
-    <h2>Polygon Staking APY / APR: How to Compare Without Getting Tricked</h2>
-    <p>
-      <strong>APR</strong> is typically the “simple rate” (no compounding assumption).
-      <strong>APY</strong> includes a compounding assumption (and can be misleading if compounding isn’t realistic or fees are ignored).
+      A Bridge Ethereum decision is usually a trade-off between trust assumptions and speed.
+      Canonical bridges are built for a specific L2 and align with that ecosystem’s design. Third-party bridges can be faster or simpler,
+      but add more contracts/operators to trust.
     </p>
 
-    <table aria-label="APY vs APR comparison">
+    <table aria-label="Bridge Ethereum routes comparison">
       <thead>
         <tr>
-          <th>Term</th>
-          <th>What it implies</th>
-          <th>Common mistake</th>
+          <th>Route</th>
+          <th>Pros</th>
+          <th>Trade-offs</th>
         </tr>
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>APR</td>
-          <td>Simple annual rate (no compounding)</td>
-          <td>Assuming APR = final outcome (it ignores compounding and fees)</td>
+          <td>Canonical (native) L2 bridge</td>
+          <td>Clear ecosystem alignment, standard path</td>
+          <td>Withdrawals back to Ethereum can be slower depending on L2 design</td>
         </tr>
         <tr>
-          <td>APY</td>
-          <td>Annualized rate with compounding assumption</td>
-          <td>Believing APY without checking compounding frequency + transaction costs</td>
+          <td>Third-party bridge</td>
+          <td>Often faster UX, more route options</td>
+          <td>Additional smart-contract + operator/liquidity risk</td>
         </tr>
       </tbody>
     </table>
 
     <div class="note">
-      <strong>Quick check:</strong> If compounding requires frequent transactions, fees can erase the “APY gap” for small balances.
+      <strong>Rule:</strong> for large transfers, prefer routes you can explain: who operates it, how it settles, and how you verify it on explorers.
     </div>
   </section>
 
-  <section class="card" id="how-to">
-    <h2>How to Stake Polygon (POL): Tutorial (Clean, Repeatable Workflow)</h2>
-    <ol>
-      <li><strong>Choose your method:</strong> native staking vs liquid staking (based on your liquidity needs).</li>
-      <li><strong>Prepare wallet hygiene:</strong> verify official URLs, consider hardware wallet for size, keep backups safe.</li>
-      <li><strong>Pick a validator:</strong> assess commission, uptime history, transparency, and operational reputation.</li>
-      <li><strong>Delegate a small test:</strong> verify rewards accrual and that you understand the UI and steps.</li>
-      <li><strong>Scale in:</strong> add stake in tranches to reduce operational mistakes.</li>
-      <li><strong>Track + compound:</strong> decide if compounding is worth it after fees.</li>
-      <li><strong>Plan your exit:</strong> know unbonding/claim rules before you need liquidity.</li>
-    </ol>
+  <section class="card" id="fees-time">
+    <h2>Bridge Ethereum Fees and Time: What to Expect</h2>
+    <p>
+      Bridge Ethereum cost and time depend on: Ethereum Mainnet gas prices (for deposits), the bridge’s fee model,
+      and whether you must complete a “claim/finalize” step. Always read the estimate in the bridge UI before confirming.
+    </p>
+    <ul>
+      <li><strong>Fees:</strong> typically include Ethereum gas (deposit) + bridge fee + destination receive/claim gas (if applicable).</li>
+      <li><strong>Time:</strong> deposits can be minutes; withdrawals back to Ethereum can be longer on some L2s.</li>
+      <li><strong>Hidden costs:</strong> approvals, failed txs, or choosing the wrong asset can be more expensive than the bridge fee.</li>
+    </ul>
 
     <div class="note">
-      <strong>Best way to stake Polygon:</strong> stable operational setup beats chasing the highest headline number.
-      Reliability + sane commission + safe process wins.
+      <strong>Tip:</strong> do one small test Bridge Ethereum transfer to measure real end-to-end time and confirm the exact token representation you receive.
     </div>
   </section>
 
-  <section class="card" id="calculator">
-    <h2>Polygon Staking Calculator: A Practical Estimation Framework</h2>
+  <section class="card" id="wallet">
+    <h2>Bridge Ethereum Wallet Setup: Networks, Gas Tokens, and Readiness Checklist</h2>
     <p>
-      A <strong>Polygon staking calculator</strong> should estimate your <em>net</em> outcome (not just a marketing APY).
-      Use this framework:
+      After you Bridge Ethereum, you need to transact on the destination L2. That means:
+      your wallet must be on the correct network, and you must have the destination gas token (often ETH on many Ethereum L2s).
     </p>
 
-    <table aria-label="Staking calculator inputs">
+    <table aria-label="Bridge Ethereum readiness checklist">
       <thead>
         <tr>
-          <th>Input</th>
-          <th>Meaning</th>
+          <th>Item</th>
+          <th>What to do</th>
           <th>Why it matters</th>
         </tr>
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>Stake amount (POL)</td>
-          <td>Your principal</td>
-          <td>Determines if compounding fees are worth it</td>
+          <td>Correct network</td>
+          <td>Select the destination L2 in wallet</td>
+          <td>Wrong network looks like missing funds</td>
         </tr>
         <tr>
-          <td>Gross APR</td>
-          <td>Network/validator rate before compounding</td>
-          <td>Baseline yield driver</td>
+          <td>Explorer verification</td>
+          <td>Check your address on both explorers</td>
+          <td>Confirms bridge actually completed</td>
         </tr>
         <tr>
-          <td>Validator commission</td>
-          <td>Operator cut</td>
-          <td>Directly reduces rewards</td>
-        </tr>
-        <tr>
-          <td>Compounding frequency</td>
-          <td>Monthly/weekly/daily (if applicable)</td>
-          <td>Increases APY but may increase fees</td>
-        </tr>
-        <tr>
-          <td>Tx costs</td>
-          <td>Claim/compound/unstake fees</td>
-          <td>Can dominate small portfolios</td>
+          <td>Gas planning</td>
+          <td>Keep gas on both sides</td>
+          <td>Enables approvals, swaps, exits, and recovery steps</td>
         </tr>
       </tbody>
     </table>
 
     <div class="note">
-      <strong>Calculator takeaway:</strong> For smaller balances, “set and forget” (no frequent compounding) often yields higher net results after fees.
+      <strong>Rule:</strong> don’t bridge “all in.” Keep gas for approvals and emergencies on both networks.
     </div>
   </section>
 
-  <section class="card" id="validators">
-    <h2>Polygon Validator List: How to Choose the Right Validator</h2>
-    <p>
-      Instead of chasing “top APR”, evaluate validators like infrastructure providers.
-      A strong <strong>Polygon validator list</strong> checklist:
-    </p>
-    <ul>
-      <li><strong>Commission:</strong> reasonable and stable (avoid sudden spikes).</li>
-      <li><strong>Uptime &amp; reliability:</strong> consistent performance matters more than hype.</li>
-      <li><strong>Transparency:</strong> clear operator identity, documentation, and communication.</li>
-      <li><strong>Risk posture:</strong> sensible security practices and operational maturity.</li>
-    </ul>
+  <section class="card" id="verify">
+    <h2>How to Verify a Bridge Ethereum Transfer (Explorer-First)</h2>
+    <ol>
+      <li><strong>Save the tx hash</strong> from the bridge UI.</li>
+      <li><strong>Check the source tx</strong> (must be successful on Ethereum).</li>
+      <li><strong>Check bridge status</strong> (some bridges show “claim required”).</li>
+      <li><strong>Check your address on the destination explorer</strong> for token transfers.</li>
+      <li><strong>Only then</strong> fix wallet visibility by adding the verified token contract.</li>
+    </ol>
 
     <div class="note">
-      <strong>Heuristic:</strong> Pick validators you can explain in one sentence (who they are + why you trust their operations).
+      <strong>Most common Bridge Ethereum mistake:</strong> trusting wallet UI before explorer data.
     </div>
   </section>
 
-  <section class="card" id="minimum">
-    <h2>Polygon Staking Minimum POL Required</h2>
+  <section class="card" id="tokens">
+    <h2>Bridge Ethereum Tokens: Supported Assets and “Token Not Showing” Fix</h2>
     <p>
-      The <strong>Polygon staking minimum POL required</strong> depends on the staking method and platform.
-      In practice, your “real minimum” is the amount where fees don’t crush net yield and you can still afford
-      exit transactions if needed.
-    </p>
-    <ul>
-      <li><strong>Hard minimum:</strong> varies by method/platform.</li>
-      <li><strong>Practical minimum:</strong> enough POL so periodic transactions (claim/compound/unstake) don’t eat yield.</li>
-      <li><strong>Safety minimum:</strong> keep extra for network fees and recovery actions.</li>
-    </ul>
-
-    <div class="note">
-      <strong>Rule:</strong> Always keep a gas buffer; being “all-in” is how people get stuck.
-    </div>
-  </section>
-
-  <section class="card" id="yield">
-    <h2>Polygon Staking Yield: How to Think About Net Returns</h2>
-    <p>
-      <strong>Polygon staking yield</strong> should be evaluated as <em>net</em> performance: rewards minus commissions minus fees,
-      adjusted for time locked/unbonded and any downtime.
+      With Bridge Ethereum, token confusion is common: the token might not be supported by the selected route,
+      might arrive as a wrapped/represented version, or might simply not be visible in your wallet.
+      Verify on explorer first, then add the token by verified contract address.
     </p>
 
-    <h3>Net yield checklist</h3>
-    <ul>
-      <li>Gross rewards earned</li>
-      <li>Minus validator commission</li>
-      <li>Minus transaction costs (claim/compound/unstake)</li>
-      <li>Minus “lost time” (unbonding delays / operational downtime)</li>
-    </ul>
-
-    <div class="note">
-      <strong>Best practice:</strong> Track realized outcomes quarterly. If net yield is not beating your alternative (or risk feels wrong), rotate strategy.
-    </div>
-  </section>
-
-  <section class="card" id="review">
-    <h2>Staking Polygon Review: Legit, Trust, and What to Watch (2025–2026)</h2>
-    <p>
-      A <strong>Staking Polygon review</strong> should focus on predictable outcomes and safety:
-      whether the process is understandable, the validator ecosystem is mature, and the “gotchas” are manageable.
-    </p>
-
-    <div class="callout-grid">
-      <div class="mini">
-        <h3>Staking Polygon legit?</h3>
-        <p class="muted">
-          Generally, staking as a mechanism is legitimate. Your real question is: <em>which method/provider</em> and
-          <em>which validator</em> are you trusting operationally.
-        </p>
-      </div>
-      <div class="mini">
-        <h3>Staking Polygon trust</h3>
-        <p class="muted">
-          Trust is earned via transparency: clear docs, known operators, consistent performance, and a clean exit path.
-        </p>
-      </div>
-    </div>
-
-    <div class="note">
-      <strong>2025 / 2026 lens:</strong> The market rewards operational discipline. Assume attackers target approvals, fake sites, and users rushing steps.
-    </div>
-  </section>
-
-  <section class="card" id="safety">
-    <h2>Staking Polygon Safe? Risks and Rewards (What Actually Matters)</h2>
-    <p>
-      “Safe” is not binary. <strong>Staking Polygon safe</strong> depends on method risk + validator/operator risk + user mistakes.
-      You can reduce risk dramatically with hygiene and conservative choices.
-    </p>
-
-    <h3>Key risks</h3>
-    <ul>
-      <li><strong>Smart-contract risk:</strong> higher with extra layers (some liquid staking designs).</li>
-      <li><strong>Validator/operator risk:</strong> downtime, poor ops, slashing exposure.</li>
-      <li><strong>Phishing/approval risk:</strong> fake UIs and bad approvals are top avoidable loss sources.</li>
-      <li><strong>Liquidity risk:</strong> you may not be able to exit instantly (unbonding / market liquidity).</li>
-    </ul>
-
-    <div class="note">
-      <strong>Hard rule:</strong> Use bookmarks for official sites, prefer minimal approvals, and keep a separate wallet for “daily” dApp usage if you’re staking meaningful size.
-    </div>
-  </section>
-
-  <section class="card" id="comparison">
-    <h2>Staking Polygon Comparison: Native Staking vs Liquid Staking</h2>
-    <p>
-      <strong>Staking Polygon vs liquid staking</strong> is a trade-off between simplicity and flexibility.
-      Choose based on your need for liquidity and your tolerance for extra smart-contract/market risks.
-    </p>
-
-    <table aria-label="Native vs Liquid staking">
+    <table aria-label="Bridge Ethereum token problems">
       <thead>
         <tr>
-          <th>Dimension</th>
-          <th>Native delegation</th>
-          <th>Liquid staking</th>
+          <th>Problem</th>
+          <th>Likely cause</th>
+          <th>Fix</th>
         </tr>
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>Liquidity</td>
-          <td>Lower (unbonding delays)</td>
-          <td>Higher (tokenized position, depends on market)</td>
+          <td>Token not showing</td>
+          <td>Wallet doesn’t track token</td>
+          <td>Verify on explorer → add verified contract</td>
         </tr>
         <tr>
-          <td>Complexity</td>
-          <td>Lower</td>
-          <td>Higher (contracts + peg/liquidity)</td>
+          <td>Wrong token received</td>
+          <td>Different representation</td>
+          <td>Verify contract + symbol on explorer</td>
         </tr>
         <tr>
-          <td>Risk surface</td>
-          <td>Validator/operator + protocol rules</td>
-          <td>Native risks + smart-contract + market liquidity risks</td>
+          <td>No arrival</td>
+          <td>Wrong chain/address or tx failed</td>
+          <td>Check source tx + bridge status + destination explorer</td>
         </tr>
       </tbody>
     </table>
 
     <div class="note">
-      <strong>Decision rule:</strong> If you need quick exits, liquid staking can help—but treat it like an additional layer of risk.
+      <strong>Rule:</strong> never add token contracts from random links—only from explorers + official sources.
     </div>
   </section>
 
-  <section class="card" id="best-practices">
-    <h2>Best Way to Stake Polygon: Best Practices (Simple, High-Impact)</h2>
+  <section class="card" id="security">
+    <h2>Bridge Ethereum Security Checklist: Reduce Risk Fast</h2>
     <ul>
-      <li><strong>Use a hardware wallet</strong> for meaningful amounts.</li>
-      <li><strong>Delegate in tranches</strong> (test small, then scale).</li>
-      <li><strong>Prefer reputable validators</strong> with stable commission and strong ops.</li>
-      <li><strong>Keep a gas buffer</strong> for claim/unstake/recovery actions.</li>
-      <li><strong>Review allowances periodically</strong> and revoke stale permissions.</li>
-      <li><strong>Track net yield</strong> (not just headline APY).</li>
+      <li><strong>Bookmark official sites:</strong> bridge, L2 docs, explorers.</li>
+      <li><strong>Test transfer first:</strong> small amount to validate route and asset.</li>
+      <li><strong>Verify on explorers:</strong> treat explorer data as truth.</li>
+      <li><strong>Limit approvals:</strong> avoid unlimited token allowances on unknown contracts.</li>
+      <li><strong>Revoke stale approvals:</strong> periodically clean up permissions.</li>
+      <li><strong>Separate wallets:</strong> “vault” wallet vs daily dApp wallet.</li>
     </ul>
 
     <div class="note">
-      <strong>Most common mistake:</strong> users optimize for +0.5% yield and ignore the 10× bigger risk: bad ops + bad security habits.
+      <strong>Top Bridge Ethereum risk:</strong> phishing + malicious approvals. Slow down, verify domains, and read what you sign.
     </div>
   </section>
 
   <section class="card" id="troubleshooting">
-    <h2>Staking Polygon Troubleshooting: Common Issues, Root Causes, Fixes</h2>
+    <h2>Bridge Ethereum Troubleshooting: Common Issues and Fixes</h2>
 
-    <h3>“Rewards not showing”</h3>
+    <h3>“Bridge Ethereum completed but my balance is zero”</h3>
     <ul>
-      <li>You’re viewing the wrong network/account in the wallet.</li>
-      <li>Rewards accrue but require a claim/refresh action in the UI.</li>
-      <li>Validator has downtime or reporting lag—check on-chain data if available.</li>
+      <li>Switch wallet to the correct destination network.</li>
+      <li>Check your address on the destination explorer for token transfers.</li>
+      <li>Add the token by verified contract address if it’s not visible.</li>
     </ul>
 
-    <h3>“Can’t unstake / withdraw”</h3>
+    <h3>“Bridge Ethereum is stuck / pending”</h3>
     <ul>
-      <li>Unbonding period is active (wait until it completes).</li>
-      <li>There is a claim/finalize step you haven’t executed.</li>
-      <li>You don’t have enough gas for the exit transaction.</li>
+      <li>Check the source tx on Ethereum explorer (must be successful).</li>
+      <li>Some bridges require claim/finalize—check bridge status.</li>
+      <li>Relayer/liquidity delays happen—don’t resend until you understand the current state.</li>
     </ul>
 
-    <h3>“APY seems lower than expected”</h3>
+    <h3>“I don’t have gas on the destination L2”</h3>
     <ul>
-      <li>Commission is higher than assumed.</li>
-      <li>Compounding is not happening (or fees make it not worth it).</li>
-      <li>Validator performance/uptime reduced realized rewards.</li>
+      <li>Get a small amount of the destination gas token (often ETH) via exchange withdrawal or another bridge route.</li>
+      <li>Next time: bridge with a small extra amount specifically for gas.</li>
     </ul>
 
     <div class="note">
-      <strong>Best debugging method:</strong> verify state from the chain / official dashboards first, then UI second.
-      UI can lag; on-chain data is the source of truth.
+      <strong>Golden rule:</strong> if explorers show success, don’t panic—fix network selection and token visibility first.
     </div>
   </section>
 
-  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
-    <h2 id="eeat-title">Staking Polygon: Authoritative Notes &amp; External References</h2>
-    <p>
-      Replace placeholder links with your chosen authoritative sources. Keep this block “clean” (official docs, reputable security resources,
-      and dashboards) to strengthen EEAT.
-    </p>
+  <section class="sources" id="sources" aria-labelledby="sources-title">
+    <h2 id="sources-title">Authoritative Sources & References</h2>
+    <p>Use these official and high-quality references for Bridge Ethereum routes, verification, and security hygiene:</p>
 
-    <h3>Polygon / Staking</h3>
+    <h3>Ethereum.org (bridging + security)</h3>
     <ul>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon — Official Site</a></li>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon Staking — Official Docs</a></li>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon Validators — Explorer / Dashboard</a></li>
+      <li><a href="https://ethereum.org/guides/how-to-use-a-bridge/" target="_blank" rel="noopener nofollow">Ethereum.org — How to use a bridge</a></li>
+      <li><a href="https://ethereum.org/security/" target="_blank" rel="noopener nofollow">Ethereum.org — Security and scam prevention</a></li>
+      <li><a href="https://ethereum.org/guides/how-to-revoke-token-access/" target="_blank" rel="noopener nofollow">Ethereum.org — Revoke token approvals</a></li>
     </ul>
 
-    <h3>Security hygiene</h3>
+    <h3>Wallet hygiene</h3>
     <ul>
-      <li><a href="https://ethereum.org/guides/how-to-revoke-token-access/" target="_blank" rel="noopener nofollow">Ethereum.org — Revoke Token Approvals</a></li>
-      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Allowance Management</a></li>
-      <li><a href="https://blog.openzeppelin.com/" target="_blank" rel="noopener nofollow">OpenZeppelin — Smart Contract Security</a></li>
-      <li><a href="https://consensys.io/blog" target="_blank" rel="noopener nofollow">Consensys — Security Research</a></li>
+      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Allowance management</a></li>
     </ul>
 
     <div class="note">
-      <strong>About:</strong> Prepared by Crypto Finance Experts as a practical SEO-oriented knowledge base for <em>Staking Polygon (POL)</em>:
-      rewards, APY/APR, validators, calculator framework, safety, comparisons, and troubleshooting.
+      <strong>Tip:</strong> start your Bridge Ethereum journey from Ethereum.org to avoid phishing clones and bad routes.
     </div>
   </section>
 
   <section class="card faq-section" aria-labelledby="faq">
-    <h2 id="faq">Staking Polygon (POL): Frequently Asked Questions</h2>
+    <h2 id="faq">Bridge Ethereum FAQ: The Most Asked Questions (2026)</h2>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
-        <h3>What is Staking Polygon (POL) and how does it work?</h3><span class="faq-plus">+</span>
+        <h3>What does “Bridge Ethereum” mean?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
-        <p><strong>Staking Polygon (POL)</strong> typically involves delegating POL to validators (or using a staking method that represents your stake) to earn rewards while supporting network operations.</p>
+        <p><strong>Bridge Ethereum</strong> means transferring ETH or tokens from Ethereum Mainnet to an Ethereum Layer 2 (or between L2s) using a bridge protocol.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
-        <h3>Polygon staking rewards: what affects my yield?</h3><span class="faq-plus">+</span>
+        <h3>What is the safest way to Bridge Ethereum to an L2?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
-        <p>Your net yield depends on gross rate, validator commission, validator performance/uptime, compounding behavior, and transaction costs for claim/compound/unstake actions.</p>
+        <p>Use official ecosystem links (start from Ethereum.org or the destination L2’s docs), do a small test transfer, and verify on explorers before sending large amounts.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
-        <h3>Polygon staking APY / APR: which should I trust?</h3><span class="faq-plus">+</span>
+        <h3>Canonical bridge vs third-party bridge: which is better for Bridge Ethereum?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
-        <p>APR is a simple rate; APY assumes compounding. Trust the number that matches your actual compounding cadence and includes fees/commission in the net estimate.</p>
+        <p>Canonical bridges are the native route for a specific L2 and are often the default “safe baseline.” Third-party bridges can be faster or more convenient, but add extra smart-contract and operator/liquidity risk.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
-        <h3>How to stake Polygon (POL) safely?</h3><span class="faq-plus">+</span>
+        <h3>How long does Bridge Ethereum take?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
-        <p>Use official links (bookmarks), consider a hardware wallet for size, delegate a small test first, choose reputable validators, and keep a gas buffer for exits and recovery actions.</p>
+        <p>Deposits from Ethereum to many L2s can complete in minutes. Withdrawals back to Ethereum can take longer on some L2s. Always check the bridge UI estimate and verify status on explorers.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
-        <h3>Staking Polygon safe, legit, and trustworthy in 2026?</h3><span class="faq-plus">+</span>
+        <h3>What fees should I expect with Bridge Ethereum?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
-        <p>Staking as a mechanism can be legitimate, but outcomes depend on method/provider risk, validator quality, and user security hygiene. Treat phishing and approvals as the top avoidable risks.</p>
+        <p>Fees usually include Ethereum gas (deposit) + bridge fee + destination gas (if a claim or additional tx is required). Check the exact estimate immediately before confirming.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
-        <h3>Polygon validator list: what matters most?</h3><span class="faq-plus">+</span>
+        <h3>Bridge Ethereum completed but tokens are missing — what do I do?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
-        <p>Look for stable commission, strong uptime/performance, transparency, and operational reputation. Avoid unknown operators offering eye-catching headline rates.</p>
+        <p>Switch wallet to the destination network, verify the transfer on the destination explorer, and add the token by verified contract address if it isn’t visible in your wallet.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
-        <h3>Staking Polygon vs liquid staking: which is better?</h3><span class="faq-plus">+</span>
+        <h3>Why does my token look different after Bridge Ethereum?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
-        <p>Native staking is simpler but less liquid; liquid staking may be more flexible but adds smart-contract and market liquidity/peg risks. Choose based on your need for fast exits.</p>
+        <p>Some routes mint a wrapped/representative token on the destination chain. Verify the destination token contract and symbol on the explorer and compare with official sources for that bridge route.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
-        <h3>Polygon staking calculator: what inputs do I need?</h3><span class="faq-plus">+</span>
+        <h3>Do I need ETH for gas on the destination after Bridge Ethereum?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
-        <p>Stake amount, gross APR, validator commission, compounding frequency, and transaction costs. The goal is a net yield estimate, not a marketing APY.</p>
+        <p>Often yes. Many Ethereum L2s use ETH as the gas token. Plan to have a small buffer so you can approve, swap, and move funds after bridging.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
-        <h3>Why can’t I unstake or withdraw right now?</h3><span class="faq-plus">+</span>
+        <h3>Can I Bridge Ethereum directly from an exchange?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
-        <p>Most commonly: an unbonding period is still running, a claim/finalize step is required, or you lack gas for the exit transaction.</p>
+        <p>Sometimes exchanges support direct withdrawals to L2 networks. If not, withdraw to a self-custody wallet on Ethereum, then Bridge Ethereum to the destination L2.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f10" id="b10">
+        <h3>How do I avoid fake Bridge Ethereum sites?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f10" class="faq-content" role="region" aria-labelledby="b10">
+        <p>Start from official sources (Ethereum.org or the L2’s official docs), then follow their links to bridges. Bookmark verified domains and avoid sponsored ads and random links.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f11" id="b11">
+        <h3>What does “claim” or “finalize” mean in Bridge Ethereum?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f11" class="faq-content" role="region" aria-labelledby="b11">
+        <p>Some bridge designs require an extra transaction to receive funds on the destination (or to complete a withdrawal). If you skip it, the UI may show “pending” even though the initial tx succeeded.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f12" id="b12">
+        <h3>How do I revoke approvals after using Bridge Ethereum?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f12" class="faq-content" role="region" aria-labelledby="b12">
+        <p>Review and revoke token approvals you no longer need using Ethereum.org’s guide or a reputable allowance tool like Revoke.cash. Keep approvals limited whenever possible.</p>
       </div>
     </div>
 
@@ -913,22 +816,54 @@
 
 </main>
 
-<footer class="container" role="contentinfo" style="padding:2rem 0; border-top:1px solid var(--line); margin-top:2rem">
-  <p class="muted">© 2026 Staking Polygon (POL) Guide. Educational content with safety-first operational focus.</p>
+<footer class="container" role="contentinfo" style="padding:2rem 0; border-top:1px solid rgba(11,18,32,.10); margin-top:2rem">
+  <p class="muted">© 2026 Bridge Ethereum Guide. Educational content with a security-first operational focus.</p>
 </footer>
 
+<script>
+  // Accessible FAQ accordion
+  (function(){
+    const items = document.querySelectorAll('.faq-item');
+    items.forEach((item) => {
+      const btn = item.querySelector('.faq-button');
+      const panel = item.querySelector('.faq-content');
+      const plus = item.querySelector('.faq-plus');
 
+      if(!btn || !panel) return;
 
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
+        // close all
+        items.forEach((it) => {
+          const b = it.querySelector('.faq-button');
+          const p = it.querySelector('.faq-content');
+          const s = it.querySelector('.faq-plus');
+          if(!b || !p) return;
+          b.setAttribute('aria-expanded', 'false');
+          p.style.maxHeight = '0px';
+          p.classList.remove('open');
+          if(s) s.textContent = '+';
+        });
 
+        // open clicked if it was closed
+        if(!isOpen){
+          btn.setAttribute('aria-expanded', 'true');
+          panel.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          if(plus) plus.textContent = '–';
+        }
+      });
 
+      window.addEventListener('resize', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if(expanded){
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+</script>
 
-
-
-
-
-
-
-
-
-</body></html>
+</body>
+</html>
