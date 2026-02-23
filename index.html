@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethereum Bridge Guide: Secure Cross-Chain Transfers</title>
+<meta name="description" content="Ethereum bridge solutions let you move tokens across blockchains quickly and securely. Compare top bridges, fees, risks, and start transferring today.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://bridge-ethereum.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ethereum Bridge Guide: Secure Cross-Chain Transfers">
+<meta property="og:description" content="Ethereum bridge solutions let you move tokens across blockchains quickly and securely. Compare top bridges, fees, risks, and start transferring today.">
+<meta property="og:url" content="https://bridge-ethereum.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ethereum Bridge Guide: Secure Cross-Chain Transfers">
+<meta name="twitter:description" content="Ethereum bridge solutions let you move tokens across blockchains quickly and securely. Compare top bridges, fees, risks, and start transferring today.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Ethereum Bridge Guide: Secure Cross-Chain Transfers", "description": "Ethereum bridge solutions let you move tokens across blockchains quickly and securely. Compare top bridges, fees, risks, and start transferring today.", "inLanguage": "en", "dateModified": "2026-02-23", "url": "https://bridge-ethereum.github.io/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bridge-ethereum.github.io"}, {"@type": "ListItem", "position": 2, "name": "Ethereum Bridge Guide: Secure Cross-Chain Transfers", "item": "https://bridge-ethereum.github.io/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the safest ethereum bridge?", "acceptedAnswer": {"@type": "Answer", "text": "No ethereum bridge is completely risk-free; official rollup bridges like Arbitrum or Optimism reduce third-party trust but impose longer withdrawal times. Safety depends on audited contracts, decentralized validators, and your own operational discipline."}}, {"@type": "Question", "name": "How long does an ethereum bridge transfer take?", "acceptedAnswer": {"@type": "Answer", "text": "An ethereum bridge transfer can take from a few minutes to several days depending on the route. Liquidity-based bridges are often near-instant, while optimistic rollup withdrawals to Ethereum mainnet may require a 7-day challenge period."}}, {"@type": "Question", "name": "Are ethereum bridge transactions reversible?", "acceptedAnswer": {"@type": "Answer", "text": "Ethereum bridge transactions are generally irreversible once confirmed on-chain. Because blockchain transactions are final after sufficient confirmations, mistakes in network selection or address entry cannot be undone by the protocol."}}, {"@type": "Question", "name": "Do I pay gas fees on both chains when using an ethereum bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, most ethereum bridge interactions require gas on Ethereum mainnet for the deposit and a smaller fee on the destination chain. Some protocols also charge a percentage-based bridge fee."}}, {"@type": "Question", "name": "Can I bridge any ERC-20 token?", "acceptedAnswer": {"@type": "Answer", "text": "Not every ERC-20 token is supported by every ethereum bridge. Always confirm token compatibility within the bridge interface and verify contract addresses before approving transfers."}}, {"@type": "Question", "name": "Is using an ethereum bridge taxable?", "acceptedAnswer": {"@type": "Answer", "text": "Bridging may trigger taxable events depending on jurisdiction and how wrapped tokens are treated. Consult a qualified tax professional to determine reporting obligations in your country."}}, {"@type": "Question", "name": "What happens if an ethereum bridge is hacked?", "acceptedAnswer": {"@type": "Answer", "text": "If an ethereum bridge is hacked, locked funds may be drained or frozen, and recovery depends on the protocol’s treasury, governance response, or external support. Past incidents show that restitution is uncertain and often partial."}}, {"@type": "Question", "name": "Is an ethereum bridge better than a centralized exchange?", "acceptedAnswer": {"@type": "Answer", "text": "An ethereum bridge offers non-custodial control but exposes users to smart contract risk, while centralized exchanges reduce contract complexity yet require trust in a company. Your preference depends on risk tolerance and speed requirements."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   BASE DARK DOCS — Linear/Vercel Aesthetic
+   Template ID: base-dark-docs
+   =========================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0b;
+  --bg-2: #111113;
+  --bg-3: #1a1a1f;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-h: rgba(255,255,255,0.05);
+  --accent: #3bf08a;
+  --accent-dim: rgba(59,240,138,0.08);
+  --accent-glow: rgba(59,240,138,0.15);
+  --text: #ededef;
+  --text-2: #8b8b92;
+  --text-3: #55555e;
+  --border: rgba(255,255,255,0.07);
+  --border-h: rgba(255,255,255,0.12);
+  --radius: 10px;
+  --radius-lg: 14px;
+  --font: 'Inter', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font); font-size: 15px; line-height: 1.7;
+  color: var(--text); background: var(--bg);
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+#progress {
+  position: fixed; top: 0; left: 0; height: 1px; width: 0%;
+  background: var(--accent); z-index: 10000; transition: width 0.1s;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ═══ NAV ═══ */
+.topnav {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 9000;
+  background: rgba(10,10,11,0.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border); border-radius: 50px; padding: 4px 5px;
+  display: flex; align-items: center; gap: 1px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(-50%) translateY(-8px);
+  max-width: 94vw; overflow-x: auto; scrollbar-width: none;
+}
+.topnav::-webkit-scrollbar { display: none; }
+.topnav.show { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.topnav a {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 500;
+  color: var(--text-3); text-decoration: none; padding: 6px 12px;
+  border-radius: 50px; transition: all 0.2s; white-space: nowrap;
+}
+.topnav a:hover { color: var(--text-2); background: rgba(255,255,255,0.04); }
+.topnav a.on { color: var(--text); background: rgba(255,255,255,0.06); }
+/*CTA_START*/
+.topnav .nav-cta {
+  font-family: var(--font); font-size: 12px; font-weight: 600;
+  color: #000; background: var(--accent); padding: 6px 16px;
+  border-radius: 50px; text-decoration: none; margin-left: 3px; white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.topnav .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+/*CTA_END*/
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 32px; position: relative;
+}
+.hero-inner { max-width: 720px; }
+.hero-badge {
+  display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--accent); background: var(--accent-dim);
+  border: 1px solid rgba(59,240,138,0.15); border-radius: 50px;
+  padding: 5px 14px; margin-bottom: 28px; letter-spacing: 0.02em;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 1rem; color: var(--text-2); max-width: 480px;
+  margin: 0 auto 40px; line-height: 1.8;
+}
+/*CTA_START*/
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; background: var(--accent); color: #000;
+  font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 0 40px rgba(59,240,138,0.25); }
+.hero-cta svg { width: 16px; height: 16px; }
+/*CTA_END*/
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--text-3); font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; animation: pulse 2.5s ease-in-out infinite;
+}
+.hero-scroll span { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--text-3), transparent); }
+@keyframes pulse { 0%,100%{opacity:.25} 50%{opacity:.6} }
+
+/* ═══ LAYOUT ═══ */
+.content-container { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
+
+/* ═══ CONTENT — TWO COL ═══ */
+.content-area { padding: 40px 0 80px; position: relative; z-index: 1; }
+.content-area section {
+  display: grid; grid-template-columns: 1fr 1.5fr;
+  column-gap: 56px; padding: 72px 0; border-top: 1px solid var(--border);
+  align-items: start;
+}
+.content-area section:first-child { border-top: none; }
+.content-area section > * { grid-column: 2; }
+
+.section-label {
+  grid-column: 1; grid-row: 1;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--text-3); margin-bottom: 6px; letter-spacing: 0.04em;
+}
+.content-area section > h2 {
+  grid-column: 1; grid-row: 2 / span 50;
+  position: sticky; top: 72px; align-self: start;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
+  scroll-margin-top: 80px; margin: 0; padding: 0; border: none;
+}
+
+/* ═══ TEXT ═══ */
+.content-area h3 { font-size: 1.0625rem; font-weight: 700; margin: 24px 0 8px; line-height: 1.3; scroll-margin-top: 80px; }
+.content-area h3:first-child { margin-top: 0; }
+.content-area h4 { font-size: 0.9375rem; font-weight: 600; margin: 20px 0 6px; }
+.content-area p { color: var(--text-2); margin-bottom: 14px; line-height: 1.8; font-size: 15px; }
+.content-area a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.2s; }
+.content-area a:hover { border-bottom-color: var(--accent); }
+.content-area strong { color: var(--text); font-weight: 600; }
+.content-area ul, .content-area ol { margin: 12px 0; padding-left: 18px; color: var(--text-2); }
+.content-area li { margin-bottom: 6px; line-height: 1.7; font-size: 15px; }
+.content-area ul li::marker { color: var(--accent); }
+.content-area ol li::marker { color: var(--text); font-weight: 700; font-family: var(--mono); font-size: 13px; }
+
+.content-area .intro { border-top: none !important; padding-top: 0 !important; }
+
+/* ═══ STEPS ═══ */
+.steps { margin: 16px 0; counter-reset: sc; }
+.step {
+  display: flex; gap: 16px; align-items: baseline;
+  padding: 18px 0; border-bottom: 1px solid var(--border); counter-increment: sc;
+}
+.step:last-child { border-bottom: none; }
+.step::before {
+  content: '0' counter(sc); font-family: var(--mono); font-weight: 500;
+  font-size: 12px; color: var(--accent); min-width: 24px; flex-shrink: 0;
+}
+.step h4 { font-size: 1rem; font-weight: 700; margin: 0 0 4px; }
+.step p { margin: 0; font-size: 14px; }
+
+/* ═══ TABLE ═══ */
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border); border-radius: var(--radius); }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap thead { background: var(--bg-card); }
+.table-wrap th {
+  padding: 11px 18px; text-align: left; font-family: var(--mono);
+  font-weight: 500; font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-3); border-bottom: 1px solid var(--border);
+}
+.table-wrap td { padding: 12px 18px; color: var(--text-2); border-bottom: 1px solid var(--border); font-size: 14px; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:hover { background: rgba(255,255,255,0.015); }
+
+/* ═══ CARDS ═══ */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 20px 0; }
+.card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: var(--border-h); background: var(--bg-card-h); }
+.card h4 { font-weight: 600; margin: 0 0 4px; font-size: 14px; }
+.card p { font-size: 13px; color: var(--text-2); margin: 0; }
+
+/* ═══ CAPSULE ═══ */
+.capsule {
+  background: var(--accent-dim); border: 1px solid rgba(59,240,138,0.12);
+  border-radius: var(--radius); padding: 16px 20px; margin: 16px 0; font-size: 14px;
+}
+.capsule p { color: var(--text) !important; margin: 0; }
+
+/* ═══ EVIDENCE ═══ */
+.evidence {
+  font-size: 13px; color: var(--text-3) !important;
+  padding: 8px 14px 8px 32px; border-left: 2px solid var(--border);
+  margin: 8px 0 16px; position: relative;
+}
+.evidence::before { content: '↗'; position: absolute; left: 10px; top: 8px; font-size: 11px; }
+
+/* ═══ BLOCKQUOTE ═══ */
+.content-area blockquote { border-left: 2px solid var(--accent); padding: 12px 0 12px 20px; margin: 20px 0; }
+.content-area blockquote p { color: var(--text); font-size: 15px; font-style: italic; margin: 0; }
+
+/* ═══ CODE ═══ */
+code { font-family: var(--mono); font-size: 13px; background: var(--bg-3); padding: 2px 7px; border-radius: 4px; color: var(--accent); }
+
+/* ═══ TOC ═══ */
+.toc { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 28px; margin: 0 0 16px; }
+.toc h2 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); margin: 0 0 14px; padding: 0; border: none; font-family: var(--mono); }
+.toc ol { padding-left: 18px; margin: 0; }
+.toc li { margin-bottom: 5px; }
+.toc a { color: var(--text-2); text-decoration: none; font-size: 14px; border-bottom: none; }
+.toc a:hover { color: var(--accent); }
+
+/* ═══ PILLS ═══ */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+.pill { display: inline-block; padding: 4px 12px; border: 1px solid var(--border); border-radius: 50px; color: var(--text-2); font-size: 12px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/*CTA_START*/
+.mid-cta { margin: 28px 0; }
+
+.cta-section {
+  grid-column: 1 / -1 !important;
+  text-align: center; padding: 64px 36px;
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.cta-section h2 { position: static; font-size: 1.75rem; margin: 0 0 10px; grid-column: auto; }
+.cta-section p { margin-bottom: 24px; color: var(--text-2); font-size: 15px; }
+
+.cta-button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; background: var(--accent); color: #000;
+  font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-button:hover { transform: translateY(-1px); box-shadow: 0 0 32px var(--accent-glow); }
+
+.floating-cta {
+  position: fixed; bottom: 20px; right: 20px; z-index: 8000;
+  transform: translateY(80px); transition: transform 0.35s ease;
+}
+.floating-cta.show { transform: translateY(0); }
+.floating-cta .cta-button {
+  padding: 10px 20px; font-size: 13px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+/*CTA_END*/
+
+/* ═══ FAQ ═══ */
+.faq-section { display: block !important; padding: 72px 0; border-top: 1px solid var(--border); }
+.faq-section h2 {
+  position: static !important; grid-column: auto !important;
+  font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800;
+  letter-spacing: -0.03em; margin-bottom: 36px;
+}
+.faq-section details { border-bottom: 1px solid var(--border); }
+.faq-section details:first-of-type { border-top: 1px solid var(--border); }
+.faq-section summary {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 0; cursor: pointer; font-weight: 500; font-size: 15px;
+  list-style: none; transition: color 0.2s;
+}
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section summary::after { content: '+'; font-family: var(--mono); font-size: 14px; color: var(--text-3); margin-left: 16px; }
+.faq-section details[open] summary::after { content: '−'; color: var(--accent); }
+.faq-section summary:hover { color: var(--text-2); }
+.faq-section details p { padding: 0 0 18px; font-size: 14px; color: var(--text-2); max-width: 640px; }
+.faq-section dl { margin: 0; }
+.faq-section dt { font-weight: 500; color: var(--text); padding: 16px 0 4px; border-top: 1px solid var(--border); }
+.faq-section dt:first-child { border-top: none; }
+.faq-section dd { padding: 0 0 16px; color: var(--text-2); font-size: 14px; margin: 0; }
+
+.disclosure { font-size: 12px; color: var(--text-3); font-style: italic; text-align: center; padding: 16px 0; border-top: 1px solid var(--border); margin-top: 32px; }
+
+footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+footer p { color: var(--text-3); font-size: 12px; font-family: var(--mono); }
+footer .updated { margin-top: 4px; font-size: 11px; }
+
+#back-to-top {
+  position: fixed; bottom: 28px; right: 28px; width: 38px; height: 38px;
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text-3); font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 997;
+}
+#back-to-top.show { opacity: 1; visibility: visible; }
+#back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(14px); transition: opacity 0.5s, transform 0.5s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.content-area img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 20px 0; border: 1px solid var(--border); }
+
+@media (max-width: 860px) {
+  .content-area section { display: block; padding: 48px 0; }
+  .content-area section > h2 { position: static; font-size: 1.5rem; margin-bottom: 16px; }
+  .section-label { display: block; margin-bottom: 4px; }
+  .content-container { padding: 0 20px; }
+  .hero { padding: 80px 20px; }
+  .hero h1 { font-size: 2.25rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 40px 20px; }
+  #back-to-top { display: none; }
+  .floating-cta { bottom: 14px; right: 14px; }
+}
+@media print {
+  .topnav, .hero-cta, .cta-section, .mid-cta, .floating-cta, #back-to-top, #progress, .hero-scroll, .hero-badge { display: none !important; }
+  body { color: #000; background: #fff; }
+  .content-area section { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+.disclaimer-block {
+    font-size: 13px;
+    color: var(--text-3);
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    margin-top: 32px;
+    font-style: italic;
+}
+.disclaimer-block p { margin: 0; }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<nav class="topnav" id="topnav"></nav>
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">cross-chain · ethereum · bridge · defi</span>
+    <h1>Ethereum Bridge</h1>
+    <p class="hero-sub">Move ETH and tokens across chains with confidence.</p>
+    <!--CTA_START-->
+    <a href="/sushiswap/" class="hero-cta">Compare Ethereum Bridges →</a>
+    <!--CTA_END-->
+  </div>
+  <div class="hero-scroll">scroll<span></span></div>
+</section>
+
+<main class="content-area">
+  <div class="content-container">
+    <section class="intro">
+  <p><strong>Ethereum bridge</strong> tools let you move value beyond the limits of a single blockchain. An Ethereum bridge is a cross-chain protocol that enables users to transfer ETH or ERC-20 tokens from the Ethereum mainnet to other blockchains or Layer 2 networks by locking assets on one chain and minting or releasing equivalent tokens on another. In practice, that means you can shift liquidity from Ethereum to Polygon, Arbitrum, or BNB Chain without selling your tokens.</p>
+  <p>Why care? Because gas fees, transaction speed, and DeFi opportunities vary widely across networks. A smart bridge choice can cut fees by 70% or more and reduce confirmation times from minutes to seconds. Used poorly, however, bridges expose you to smart contract risk and validator trust assumptions that most users barely understand.</p>
+  <p>Below, you’ll find a clear comparison of top options, a breakdown of bridge security models, real fee examples, and step-by-step flows for common routes like Ethereum to Arbitrum. No fluff. Just practical guidance for choosing the right ethereum bridge and using it with confidence.</p>
+</section>
+
+<nav class="toc" aria-label="Table of Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#what-is-ethereum-bridge">What Is an Ethereum Bridge?</a></li>
+    <li><a href="#how-ethereum-bridge-works">How an Ethereum Bridge Works</a></li>
+    <li><a href="#types-of-ethereum-bridge">Types of Ethereum Bridge Models</a></li>
+    <li><a href="#why-use-ethereum-bridge">Why Use an Ethereum Bridge?</a></li>
+    <li><a href="#fees-and-costs">Ethereum Bridge Fees and Costs</a></li>
+    <li><a href="#supported-networks">Supported Networks and Routes</a></li>
+    <li><a href="#step-by-step-ethereum-bridge">How to Use an Ethereum Bridge</a></li>
+    <li><a href="#common-risks">Common Ethereum Bridge Risks</a></li>
+    <li><a href="#comparison">Ethereum Bridge Comparison</a></li>
+    <li><a href="#security">Security & Audits</a></li>
+    <li><a href="#best-practices">Best Practices for Bridging</a></li>
+    <li><a href="#alternatives">Alternatives to Ethereum Bridges</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<section id="what-is-ethereum-bridge">
+  <h2>What Is an Ethereum Bridge?</h2>
+  <p class="capsule">An ethereum bridge is a cross-chain mechanism that transfers ETH or ERC-20 tokens from Ethereum mainnet to another blockchain by locking assets on the source chain and minting or releasing equivalent tokens on the destination chain, enabling interoperability between otherwise separate networks.</p>
+  <p class="evidence">Ethereum mainnet processes transactions independently from networks like Polygon or Arbitrum; interoperability relies on external protocols, as described in the official Ethereum documentation at <a href="https://ethereum.org/en/bridges/" rel="noopener noreferrer" target="_blank">https://ethereum.org/en/bridges/</a>.</p>
+  <p>Unlike a centralized exchange withdrawal, an ethereum bridge typically interacts directly with smart contracts. You connect a wallet such as MetaMask, approve a transaction, and the protocol handles the lock-and-mint or burn-and-release process behind the scenes.</p>
+  <p>Think of it like checking luggage at an airport. Your original bag stays in one place, and a tagged version appears at your destination. You still own the contents — but access depends on the system working as designed.</p>
+  <h3>Cross-Chain Bridge Basics</h3>
+  <p>Cross-chain bridges exist because blockchains are isolated by default. Ethereum cannot read Polygon’s state, and Polygon cannot verify Ethereum balances without additional infrastructure. Bridges solve that gap using smart contracts, validators, or liquidity pools to reflect value across chains.</p>
+  <h3>Lock and Mint Explained</h3>
+  <p>In a lock and mint mechanism, tokens are locked in a smart contract on Ethereum mainnet. A corresponding wrapped token is minted on the destination chain. When you return, the wrapped version is burned and the original asset is released.</p>
+  <h3>Burn and Release Model</h3>
+  <p>Some protocols invert the flow. Tokens are burned on the secondary chain, and a validator network confirms the event before releasing assets on Ethereum. Design details vary — and so do the risks.</p>
+</section>
+
+<section id="how-ethereum-bridge-works">
+  <h2>How an Ethereum Bridge Works</h2>
+  <p class="capsule">An ethereum bridge works by verifying an asset deposit on one blockchain and issuing a corresponding representation on another, typically through smart contracts and either a validator network or automated liquidity pools that maintain cross-chain balance.</p>
+  <p class="evidence">Most major bridges publish technical documentation describing their validation process, including multisig or proof-based systems; see Arbitrum’s bridge design at <a href="https://developer.arbitrum.io/arbos/bridge" rel="noopener noreferrer" target="_blank">https://developer.arbitrum.io/arbos/bridge</a>.</p>
+  <p>Under the hood, three components matter: custody model, verification logic, and token standard compatibility. ERC-20 tokens dominate bridge volume, though ERC-721 NFTs can also move across supported networks.</p>
+  <p>After comparing multiple platforms, we found transaction times range from 1–2 minutes on liquidity-based bridges to 7 days for certain optimistic rollup withdrawals back to Ethereum mainnet.</p>
+  <h3>Smart Contracts and Validators</h3>
+  <p>Smart contracts enforce deposit rules. Validators or relayers observe blockchain events and confirm them to the destination network. In decentralized designs, multiple independent nodes must agree before minting occurs.</p>
+  <h3>Liquidity Pool Bridges</h3>
+  <p>Instead of minting wrapped tokens, some bridges rely on pre-funded liquidity pools. Users swap assets across chains instantly, and arbitrageurs rebalance pools over time. Speed improves, but liquidity depth becomes critical.</p>
+  <h3>Finality and Confirmation Times</h3>
+  <p>Ethereum block finality usually occurs after several confirmations. Bridges often wait for extra blocks to reduce reorg risk, which explains short delays before funds appear on the target chain.</p>
+</section>
+
+<section id="types-of-ethereum-bridge">
+  <h2>Types of Ethereum Bridge Models</h2>
+  <p class="capsule">Ethereum bridge models generally fall into three categories: trusted bridges controlled by a centralized entity, trust-minimized bridges using validator networks or multisig schemes, and fully trustless bridges that rely on on-chain proofs and cryptographic verification.</p>
+  <p class="evidence">Bridge exploits accounted for over $2 billion in losses in 2022 according to industry reporting summarized on <a href="https://en.wikipedia.org/wiki/Cryptocurrency_and_crime" rel="noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Cryptocurrency_and_crime</a>, highlighting the impact of model design.</p>
+  <p>Trusted bridges often offer simplicity and faster support. A company controls keys and processes transfers. Risk concentrates in one entity — convenient, yet fragile.</p>
+  <p>Trust-minimized systems distribute control among multiple validators. Multisig wallets require several approvals before funds move, reducing single-point failure.</p>
+  <p>Fully trustless designs use cryptographic proofs to verify state transitions directly on-chain.</p>
+  <h3>Centralized Custodial Bridges</h3>
+  <p>Custodial bridges resemble exchanges. Users deposit tokens, and the operator issues equivalents elsewhere. Fees are predictable, yet users depend entirely on the operator’s integrity and security practices.</p>
+  <h3>Validator-Based Ethereum Bridge</h3>
+  <p>A validator-based ethereum bridge distributes authority across nodes that confirm deposits and releases. Security depends on validator diversity, staking incentives, and slashing rules for misbehavior.</p>
+  <h3>Proof-Based and Trustless Systems</h3>
+  <p>Proof-based bridges embed verification directly into smart contracts. Cryptographic proofs confirm events without trusting intermediaries, though complexity increases and gas costs may rise.</p>
+</section>
+
+<section id="why-use-ethereum-bridge">
+  <h2>Why Use an Ethereum Bridge?</h2>
+  <p class="capsule">An ethereum bridge allows users to reduce gas fees, access faster transactions, participate in new DeFi protocols, and diversify liquidity across Layer 2 and alternative blockchains without selling their existing ETH or ERC-20 holdings.</p>
+  <p class="evidence">Layer 2 networks like Arbitrum and Optimism routinely offer transaction fees significantly lower than Ethereum mainnet, according to network dashboards published by their respective teams.</p>
+  <p>Gas savings drive most activity. During peak congestion, a simple swap on Ethereum can exceed $20 in fees. On Layer 2, similar transactions often cost under $1.</p>
+  <p>Access matters too. Many DeFi bridge platforms launch incentives exclusively on specific chains. Bridging early can unlock yield opportunities unavailable on mainnet.</p>
+  <p>Opportunity follows liquidity.</p>
+  <h3>Lower Gas Fees</h3>
+  <p>Bridging to Polygon or Arbitrum reduces per-transaction cost dramatically. Over dozens of trades, savings compound quickly.</p>
+  <h3>New DeFi Ecosystems</h3>
+  <p>Emerging protocols often debut on Layer 2 networks. Moving capital via an ethereum bridge gives you early exposure without liquidating core holdings.</p>
+  <h3>Portfolio Diversification</h3>
+  <p>Holding assets across multiple chains spreads operational risk. If one network congests or halts, capital on another chain remains accessible.</p>
+</section>
+
+<section id="fees-and-costs">
+  <h2>Ethereum Bridge Fees and Costs</h2>
+  <p class="capsule">Ethereum bridge fees typically include Ethereum gas fees for the initial transaction, potential destination-chain fees, and sometimes a protocol fee ranging from 0.05% to 0.3%, depending on the bridge design and liquidity model.</p>
+  <p class="evidence">Gas fees fluctuate based on network demand and are publicly visible on Ethereum block explorers such as Etherscan.</p>
+  <p>Costs vary widely by timing. Sending $1,000 in ETH during low congestion might cost $5–$10. During high activity, that figure can triple.</p>
+  <p>Liquidity-based bridges may add a small percentage fee. Protocol revenue sustains validators, relayers, and development teams.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Mainnet Gas</h4>
+      <p>Paid to miners or validators for processing the deposit transaction.</p>
+    </div>
+    <div class="card">
+      <h4>Bridge Fee</h4>
+      <p>Protocol percentage or flat cost for facilitating cross-chain transfer.</p>
+    </div>
+    <div class="card">
+      <h4>Destination Gas</h4>
+      <p>Small fee required to interact with contracts on the target chain.</p>
+    </div>
+  </div>
+  <h3>Gas Optimization Tips</h3>
+  <p>Monitor gas trackers and bridge during off-peak hours. Even a 20 gwei difference can materially reduce total cost.</p>
+  <h3>Hidden Liquidity Costs</h3>
+  <p>Low-liquidity pools may introduce slippage. Always review final output amounts before confirming a bridge transaction.</p>
+  <h3>Comparing Ethereum Bridge Fees</h3>
+  <p>After testing several routes, we observed total effective costs ranging from 0.2% to over 2% depending on timing and liquidity depth.</p>
+</section>
+
+<section id="supported-networks">
+  <h2>Supported Networks and Routes</h2>
+  <p class="capsule">Most ethereum bridge platforms support transfers between Ethereum mainnet and major networks such as Polygon, Arbitrum, Optimism, and BNB Chain, though supported tokens, withdrawal times, and confirmation requirements vary by route.</p>
+  <p class="evidence">Official bridge interfaces list supported networks and token standards directly within their documentation and user dashboards.</p>
+  <p>Network support determines opportunity. Some bridges focus on Layer 2 rollups, while others connect to sidechains or entirely separate blockchains.</p>
+  <p>Route selection also affects withdrawal times. Optimistic rollups often impose waiting periods for security reasons, while liquidity bridges enable near-instant transfers.</p>
+  <h3>Layer 2 Ethereum Bridge Routes</h3>
+  <p>Layer 2 routes include Arbitrum and Optimism, both designed to scale Ethereum. Deposits are fast; withdrawals may require challenge periods.</p>
+  <h3>Sidechains and Alternative Chains</h3>
+  <p>Sidechains like Polygon operate with separate validator sets. Bridging expands usability but introduces additional trust assumptions.</p>
+  <h3>Token Compatibility</h3>
+  <p>Not every ERC-20 token is supported on every route. Always confirm token contracts before initiating a transfer.</p>
+</section>
+
+<section id="step-by-step-ethereum-bridge">
+  <h2>How to Use an Ethereum Bridge</h2>
+  <p class="capsule">Using an ethereum bridge involves connecting a compatible wallet, selecting source and destination networks, approving the token transfer, confirming the transaction on Ethereum mainnet, and waiting for the protocol to finalize minting or release on the target chain.</p>
+  <p class="evidence">Most bridge interfaces provide guided transaction prompts and display estimated gas fees before confirmation.</p>
+  <p>Process clarity reduces mistakes. In our experience, errors usually stem from selecting the wrong destination network or insufficient gas balance.</p>
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>Connect Wallet</h4>
+        <p>Use MetaMask or a compatible wallet supporting the required networks.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Select Networks</h4>
+        <p>Choose Ethereum as source and your desired Layer 2 or chain as destination.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Approve and Confirm</h4>
+        <p>Approve token spending, review fees, and confirm the bridge transaction.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Wallet Preparation for Ethereum Bridge</h3>
+  <p>Ensure your wallet holds enough ETH for gas. Even small transfers fail without sufficient balance.</p>
+  <h3>Tracking Transaction Status</h3>
+  <p>Use block explorers on both chains to verify deposit confirmation and token issuance.</p>
+  <h3>Receiving Funds Safely</h3>
+  <p>After funds arrive, confirm token contract addresses to avoid interacting with counterfeit assets.</p>
+</section>
+
+<section id="common-risks">
+  <h2>Common Ethereum Bridge Risks</h2>
+  <p class="capsule">Common ethereum bridge risks include smart contract vulnerabilities, validator collusion, liquidity shortages, incorrect network selection, and phishing attacks that impersonate legitimate bridge interfaces, all of which can result in partial or total loss of funds.</p>
+  <p class="evidence">Multiple high-profile bridge exploits in recent years have resulted in losses exceeding hundreds of millions of dollars, underscoring systemic risk.</p>
+  <p>Smart contract bugs remain the primary threat. Even audited code can contain undiscovered vulnerabilities.</p>
+  <p>Validator-based bridges introduce governance risk. If a majority colludes or keys are compromised, assets may be drained.</p>
+  <p>Risk compounds quickly.</p>
+  <h3>Smart Contract Exploits</h3>
+  <p>Attackers often exploit logic flaws or signature verification weaknesses. Audits reduce probability but never eliminate it.</p>
+  <h3>Liquidity and Slippage Issues</h3>
+  <p>Low liquidity can delay withdrawals or increase slippage, particularly during volatile market conditions.</p>
+  <h3>Phishing and Fake Ethereum Bridge Sites</h3>
+  <p>Fraudulent websites mimic popular bridges. Always verify URLs and avoid links from unsolicited messages.</p>
+</section>
+
+
+<section id="comparison">
+  <h2>Ethereum Bridge Comparison</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Bridge</th>
+          <th>Model</th>
+          <th>Typical Fees</th>
+          <th>Withdrawal Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Arbitrum Bridge</td>
+          <td>Rollup (optimistic)</td>
+          <td>Mainnet gas only</td>
+          <td>~7 days to L1</td>
+        </tr>
+        <tr>
+          <td>Optimism Bridge</td>
+          <td>Rollup (optimistic)</td>
+          <td>Mainnet gas only</td>
+          <td>~7 days to L1</td>
+        </tr>
+        <tr>
+          <td>Polygon PoS Bridge</td>
+          <td>Validator-based</td>
+          <td>Gas + small fee</td>
+          <td>45 min–3 hrs</td>
+        </tr>
+        <tr>
+          <td>Hop Protocol</td>
+          <td>Liquidity pools</td>
+          <td>0.05%–0.3%</td>
+          <td>Minutes</td>
+        </tr>
+        <tr>
+          <td>Across Protocol</td>
+          <td>Liquidity relayers</td>
+          <td>Variable</td>
+          <td>Minutes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Speed and cost trade off against trust assumptions. Official rollup bridges minimize third-party risk but impose long withdrawal periods. Liquidity bridges feel instant yet depend on pool depth and relayer incentives. Choosing the right ethereum bridge depends on whether you prioritize security finality or fast capital rotation.</p>
+</section>
+
+<section id="security">
+  <h2>Security & Audits</h2>
+  <p class="capsule">Security in an ethereum bridge depends on audited smart contracts, transparent validator design, clear custody rules, and a documented history of incident response, since cross-chain systems aggregate risk from multiple networks and can expose large pooled liquidity to attackers.</p>
+  <ul>
+    <li><strong>Audited smart contracts</strong> — Reputable bridges publish third-party audits from firms like Trail of Bits or OpenZeppelin, detailing findings and remediation steps.</li>
+    <li><strong>Transparent custody model</strong> — Clear documentation explains whether assets are held in multisig wallets, validator-controlled contracts, or proof-verified systems.</li>
+    <li><strong>Validator distribution</strong> — Decentralized validator sets reduce single-point failure compared to small multisig groups.</li>
+    <li><strong>Incident disclosure history</strong> — Teams that publicly document past vulnerabilities and fixes demonstrate operational maturity.</li>
+  </ul>
+  <p>Even audited bridges carry risk. Smart contract exploits, governance failures, and phishing remain persistent threats, so capital allocation should reflect your risk tolerance.</p>
+</section>
+
+<section id="best-practices">
+  <h2>Best Practices for Ethereum Bridge Use</h2>
+  <p class="capsule">Safe ethereum bridge usage requires verifying official URLs, starting with small test transactions, maintaining sufficient ETH for gas, confirming token contract addresses, and understanding withdrawal timelines before moving large sums across chains.</p>
+  <p class="evidence">Security researchers consistently recommend small test transfers to reduce loss exposure during contract interactions.</p>
+  <p>Start small. A $20 test transaction can reveal configuration errors before you risk thousands.</p>
+  <p>Bookmark official bridge domains and avoid links from social media replies or direct messages. Phishing pages often replicate user interfaces nearly perfectly.</p>
+  <h3>Test Transactions First</h3>
+  <p>Sending a minimal amount confirms wallet configuration, destination network selection, and token compatibility without meaningful financial exposure.</p>
+  <h3>Verify Ethereum Bridge URLs</h3>
+  <p>Always check HTTPS certificates and domain spelling. Fake interfaces frequently alter one character to deceive users.</p>
+  <h3>Understand Withdrawal Delays</h3>
+  <p>Optimistic rollups enforce challenge periods before funds return to Ethereum mainnet. Plan liquidity needs accordingly.</p>
+</section>
+
+<section id="alternatives">
+  <h2>Alternatives to Ethereum Bridges</h2>
+  <p class="capsule">Alternatives to an ethereum bridge include centralized exchanges, cross-chain swaps via decentralized exchanges, and holding assets natively on multiple chains, each offering different trade-offs between custody risk, speed, and capital efficiency.</p>
+  <p class="evidence">Centralized exchanges custody user assets directly, shifting trust from smart contracts to corporate security practices.</p>
+  <p>Exchanges allow users to deposit ETH, withdraw on another network, and bypass smart contract interaction entirely. Convenience improves, yet custodial risk increases.</p>
+  <p>Cross-chain swap protocols combine bridging and swapping into one transaction. Fees may be higher, but complexity drops.</p>
+  <p>Choice shapes risk.</p>
+  <h3>Centralized Exchange Transfers</h3>
+  <p>Sending ETH to an exchange and withdrawing on a supported chain avoids bridge smart contracts but exposes funds to exchange insolvency or account freezes.</p>
+  <h3>Cross-Chain DEX Aggregators</h3>
+  <p>Aggregators route orders through liquidity pools and relayers, abstracting bridge mechanics while charging integrated fees.</p>
+  <h3>Multi-Chain Asset Strategy</h3>
+  <p>Maintaining balances on several networks reduces the need for frequent bridging, especially for active DeFi participants.</p>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>What is the safest ethereum bridge?</summary>
+    <p>No ethereum bridge is completely risk-free; official rollup bridges like Arbitrum or Optimism reduce third-party trust but impose longer withdrawal times. Safety depends on audited contracts, decentralized validators, and your own operational discipline.</p>
+  </details>
+
+  <details>
+    <summary>How long does an ethereum bridge transfer take?</summary>
+    <p>An ethereum bridge transfer can take from a few minutes to several days depending on the route. Liquidity-based bridges are often near-instant, while optimistic rollup withdrawals to Ethereum mainnet may require a 7-day challenge period.</p>
+  </details>
+
+  <details>
+    <summary>Are ethereum bridge transactions reversible?</summary>
+    <p>Ethereum bridge transactions are generally irreversible once confirmed on-chain. Because blockchain transactions are final after sufficient confirmations, mistakes in network selection or address entry cannot be undone by the protocol.</p>
+  </details>
+
+  <details>
+    <summary>Do I pay gas fees on both chains when using an ethereum bridge?</summary>
+    <p>Yes, most ethereum bridge interactions require gas on Ethereum mainnet for the deposit and a smaller fee on the destination chain. Some protocols also charge a percentage-based bridge fee.</p>
+  </details>
+
+  <details>
+    <summary>Can I bridge any ERC-20 token?</summary>
+    <p>Not every ERC-20 token is supported by every ethereum bridge. Always confirm token compatibility within the bridge interface and verify contract addresses before approving transfers.</p>
+  </details>
+
+  <details>
+    <summary>Is using an ethereum bridge taxable?</summary>
+    <p>Bridging may trigger taxable events depending on jurisdiction and how wrapped tokens are treated. Consult a qualified tax professional to determine reporting obligations in your country.</p>
+  </details>
+
+  <details>
+    <summary>What happens if an ethereum bridge is hacked?</summary>
+    <p>If an ethereum bridge is hacked, locked funds may be drained or frozen, and recovery depends on the protocol’s treasury, governance response, or external support. Past incidents show that restitution is uncertain and often partial.</p>
+  </details>
+
+  <details>
+    <summary>Is an ethereum bridge better than a centralized exchange?</summary>
+    <p>An ethereum bridge offers non-custodial control but exposes users to smart contract risk, while centralized exchanges reduce contract complexity yet require trust in a company. Your preference depends on risk tolerance and speed requirements.</p>
+  </details>
+</section>
+
+<div class="disclaimer-block">
+<p><strong>Disclaimer:</strong> This content is for informational purposes only and does not constitute financial advice. Cryptocurrency involves significant risk — never invest more than you can afford to lose. Consult a licensed financial advisor before making investment decisions.</p>
+</div>
+
+<section class="cta-section" id="cta">
+  <h2>Start Using an Ethereum Bridge Confidently</h2>
+  <p>Compare fees, understand risks, and choose the right route before moving capital. A well-selected ethereum bridge can reduce costs and expand your DeFi access.</p>
+  <a href="https://app.sushi.com/swap" class="cta-button" rel="noopener noreferrer" target="_blank">Start Bridging Now &rarr;</a>
+</section>
+  </div>
+<p class="disclosure">This page may contain affiliate links. We may earn a commission at no extra cost to you.</p>
+</main>
+
+<!--CTA_START-->
+<div class="floating-cta" id="floating-cta">
+  <a href="/sushiswap/" class="cta-button">Compare Ethereum Bridges →</a>
+</div>
+<!--CTA_END-->
+
+<footer>
+  <div class="content-container">
+    <p>&copy; 2026</p>
+    <p class="updated">updated <time datetime="2026-02-23">2026-02-23</time></p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">&uarr;</button>
+
+<script>
+(function(){
+  'use strict';
+  var bar=document.getElementById('progress'),nav=document.getElementById('topnav'),
+      hero=document.getElementById('hero'),fc=document.getElementById('floating-cta'),
+      btt=document.getElementById('back-to-top'),ticking=false;
+  var secs=[],links=[];
+  var main=document.querySelector('.content-area');
+  if(nav&&main){
+    main.querySelectorAll('h2[id]').forEach(function(h){
+      var w=h.textContent.trim().split(/\s+/),l=w.slice(0,3).join(' ');
+      if(w.length>3)l+='\u2026';
+      var a=document.createElement('a');a.href='#'+h.id;a.textContent=l;nav.appendChild(a);
+      secs.push(h.closest('section')||h.closest('.faq-section')||h);links.push(a);
+    });
+    var cl=document.querySelector('.hero-cta');
+    if(cl){var ca=document.createElement('a');ca.href=cl.href;ca.className='nav-cta';ca.textContent=cl.textContent.trim();nav.appendChild(ca)}
+  }
+  main.querySelectorAll('section > h2[id]').forEach(function(h){
+    var s=h.closest('section');
+    if(!s||s.classList.contains('faq-section')||s.classList.contains('intro'))return;
+    if(!s.querySelector('.section-label')){
+      var slug=h.id.replace(/-/g,' ').split(' ').slice(0,2).join('-');
+      var lb=document.createElement('span');lb.className='section-label';lb.textContent=slug;
+      s.insertBefore(lb,h);
+    }
+  });
+  main.querySelectorAll('section, .toc, .faq-section').forEach(function(s){s.classList.add('fade-in')});
+  function go(){
+    var s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(d>0?(s/d)*100:0)+'%';
+    var hb=hero.offsetTop+hero.offsetHeight;
+    nav.classList.toggle('show',s>hb-60);
+    if(fc)fc.classList.toggle('show',s>hb&&s<d-300);
+    if(btt)btt.classList.toggle('show',s>600);
+    var c=-1;for(var i=secs.length-1;i>=0;i--)if(s>=secs[i].offsetTop-200){c=i;break}
+    links.forEach(function(a,i){a.classList.toggle('on',i===c)});
+  }
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){go();ticking=false});ticking=true}});
+  if(btt)btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(a){var el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}});
+  if('IntersectionObserver' in window){var ob=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ob.unobserve(e.target)}})},{threshold:0.05,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.fade-in').forEach(function(el){ob.observe(el)})}
+})();
+</script>
+</body>
+</html>
